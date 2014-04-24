@@ -1,0 +1,9 @@
+[submodule "pinyin"]
+	path = pinyin
+	url = git://github.com/pffy/javascript-hanyupinyin.git
+[submodule "mp3snd"]
+	path = mp3snd
+	url = git://github.com/pffy/mp3-chinese-pinyin-sound.git
+[submodule "oggsnd"]
+	path = oggsnd
+	url = git://github.com/pffy/ogg-chinese-pinyin-sound.git
