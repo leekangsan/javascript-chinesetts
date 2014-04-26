@@ -18,17 +18,18 @@ Mandarin Chinese Text-to-Speech processing using native speaker voices
 + Firefox 28 - FAILED.
   + Details in [Issue #2](https://github.com/pffy/javascript-chinesetts/issues/2)
 
-***** 
+*****
 
 + Chrome 34 - OK
 + Firefox 27 - OK
 + Opera 20 - OK
++ MSIE 11 - OK
 
 ## SYNOPSIS ##
 
 + ChineseTextToSpeech()
 
-***
+*****
 
 + getHtml() : string
 + getInput() : string
