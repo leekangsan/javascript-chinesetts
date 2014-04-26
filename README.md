@@ -20,7 +20,7 @@ Mandarin Chinese Text-to-Speech processing using native speaker voices
 
 *****
 
-+ Chrome 34 - **OK**
++ [Chrome 34](https://www.google.com/chrome/) _(recommended)_ - **OK**
 + Firefox 27 - **OK**
 + Opera 20 - **OK**
 + MSIE 11 - **OK**
