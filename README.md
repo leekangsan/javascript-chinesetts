@@ -16,7 +16,7 @@ Mandarin Chinese Text-to-Speech processing using native speaker voices
 ## COMPATIBILITY ##
 
 + Firefox 28 - FAILED.
-  + Details in Issue #2
+  + Details in [Issue #2](https://github.com/pffy/javascript-chinesetts/issues/2)
 
 ***** 
 
