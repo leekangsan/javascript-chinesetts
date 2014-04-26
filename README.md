@@ -6,14 +6,25 @@ Mandarin Chinese Text-to-Speech processing using native speaker voices
 + JavaScript written using Airbnb JavaScript Style Guide 
   + Learn More: https://github.com/airbnb/javascript
 
+## GETTING STARTED ##
 
-# COMPATIBILITY #
++ Using local web server? Must run from localhost.
++ For example:
+  + http://localhost/demo.html
+  + http://localhost:80/demo.html
+
+## COMPATIBILITY ##
+
++ Firefox 28 - FAILED.
+  + Details in Issue #2
+
+***** 
 
 + Chrome 34 - OK
 + Firefox 27 - OK
 + Opera 20 - OK
 
-# SYNOPSIS #
+## SYNOPSIS ##
 
 + ChineseTextToSpeech()
 
