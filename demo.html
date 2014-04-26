@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 <head>
   <title>chinesetts.js demo</title>
@@ -36,12 +37,15 @@
       // sets pin1 yin1 input
       tts.setInput(pinyin);
       
-      // writes HTML5 audio tone bank
-      document.write(tts.getHtml() + 'chinesetts.js - ' +
+      // some comments
+      document.body.innerHTML += 'chinesetts.js - ' +
         'You should hear Mandarin Chinese, counting 1, 2, 3, 4, 5... <br/>' +
         'See Developer Console (Press F12) for demo... ' +
         '<a href=javascript:void(window.open("view-source:"+location.href));> ' +
-        'View Source</a> for code.');
+        'View Source</a> for code.';
+
+      // writes HTML5 audio tone bank 
+      document.body.innerHTML += tts.getHtml();      
 
       // play the pin1 yin1 input in sequence
       tts.speak();
