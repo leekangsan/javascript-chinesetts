@@ -1,12 +1,12 @@
 /**
  * chinesetts.js, JavaScript Chinese Text-to-Speech object
  *      - processes pinyin input
- *      - speaks tonemes (hanyu pinyin speech)
+ *      - speaks tonemes (hanyu pinyin speech units)
  *
- * @version 0.1
+ * @version 0.5
  * @license The Unlicense, http://unlicense.org/
  * @author  The Pffy Authors, https://github.com/pffy/
- * @updated 2014-04-24
+ * @updated 2014-06-05
  * @link    https://github.com/pffy/javascript-chinesetts
  *
  */
@@ -44,22 +44,22 @@ var ChineseTextToSpeech = function() {
       }
 
     return false;
-    };
+    }
 
     // clears prior cadence, starts new cadence
     function startCadence() {
-      
+
       var lap = 0;
 
       if(_timeDeck.length > 0) {
-        
+
         // clear the timeouts
         clearCadence();
 
         // clear the deck
         _timeDeck.length = 0;
 
-      };
+      }
 
       // add timeouts using time offset
       for(var x in _pinyinDeck) {
@@ -71,58 +71,44 @@ var ChineseTextToSpeech = function() {
         lap += _pace;
 
         _timeDeck[x] = setTimeout(
-          '(new ChineseTextToSpeech()).playPinyin("' 
+          '(new ChineseTextToSpeech()).playPinyin("'
             + _pinyinDeck[x]  + '");', lap);
-      };
+      }
 
-    console.log(_timeDeck);    
-  };
-
+    console.log(_timeDeck);
+  }
 
   // cross-browser getObject
-  // TODO: needs more testing
   function getObject(id) {
 
    var object = { };
 
    if (document.layers) {
+      object = document.layers[id];
+    } else if (document.all) {
+      object = document.all[id];
+    } else if (document.getElementById) {
+      object = document.getElementById(id);
+    }
 
-    object = document.layers[id];
-
-   } else if (document.all) {
-   
-    object = document.all[id];
-   
-   } else if (document.getElementById) {
-   
-    object = document.getElementById(id);
-   
-   };
-   
-  return object;
-  };
-
+    return object;
+  }
 
   // (attempts) to clear all timeouts
   function clearCadence() {
-
-    for(var k in _timeDeck)
-    {
+    for(var k in _timeDeck) {
       clearTimeout(_timeDeck[k]);
-    };
-  };
-
+    }
+  }
 
   // builds output HTML
   function buildHtml() {
-
     for(var b in _toneBank) {
       buildAudioHtml(_toneBank[b]);
-    };
+    }
 
-     finishAudioHtml();
-  };
-
+    finishAudioHtml();
+  }
 
   // builds HTML audio tags and JavaScript event listeners
   function buildAudioHtml(pinyinId) {
@@ -131,16 +117,17 @@ var ChineseTextToSpeech = function() {
     _outputHtml += '<audio class="tts" id="' + pinyinId + 'tone" controls="controls">';
     _outputHtml += '<source src="mp3snd/mp3/' + pinyinId + '.mp3" type="audio/mpeg" />';
     _outputHtml += '<source src="oggsnd/ogg/' + pinyinId + '.ogg" type="audio/ogg" />';
-    _outputHtml += '</audio>'; 
+    _outputHtml += '</audio>';
 
     // event listeners will re-load audio after they have 'ended'
     _outputHtml += '<script type="text/javascript">';
-    _outputHtml += 'document.getElementById("' + pinyinId + 'tone").addEventListener("ended", function() {';
+    _outputHtml += 'document.getElementById("' + pinyinId
+      + 'tone").addEventListener("ended", function() {';
     _outputHtml += '  document.getElementById("' + pinyinId + 'tone").load();';
-    _outputHtml += '}, false);';   
-    _outputHtml += '</script>';  
+    _outputHtml += '}, false);';
+    _outputHtml += '</script>';
 
-  };
+  }
 
 
   // adds CSS for tone bank HTML
@@ -155,7 +142,6 @@ var ChineseTextToSpeech = function() {
     _outputHtml += '</style>';
   }
 
-
   // builds HTML tone bank with unique tones
   function buildToneBank() {
 
@@ -164,23 +150,22 @@ var ChineseTextToSpeech = function() {
       for(var j = 0; j < _toneBank.length; j++) {
         if(_toneBank[j] == _pinyinDeck[i])
           continue startover;
-      };
+      }
 
-    // (push) add more pinyin to tone bank
-    _toneBank.push(_pinyinDeck[i]);
-    };
+      // (push) add more pinyin to tone bank
+      _toneBank.push(_pinyinDeck[i]);
+    }
 
-  console.log(_toneBank);
-  };
-  
+    console.log(_toneBank);
+  }
+
 
   // builds array of all pin1 yin1 input
   function buildPinyinDeck() {
     _pinyinDeck = _inputPinyin.split(" ");
-  };
-  
-  return {
+  }
 
+  return {
 
     /**
      * getHtml() Gets HTML5 Audio tone banks
@@ -192,18 +177,16 @@ var ChineseTextToSpeech = function() {
       return _outputHtml;
     },
 
-
     /**
      * getInput() Gets pinyin input
      *
      * @param void
      * @return string inputPinyin
-     */    
+     */
     getInput: function () {
       return _inputPinyin;
-    }, 
+    },
 
-    
     /**
      * setInput() Sets pinyin input
      *
@@ -215,14 +198,13 @@ var ChineseTextToSpeech = function() {
     setInput: function (inputString) {
 
       _inputPinyin = inputString.trim();
-      
+
       buildPinyinDeck();
       buildToneBank();
       buildHtml();
 
       return this;
     },
-
 
     /**
      * speak() Sets pace of playback cadence
@@ -234,17 +216,15 @@ var ChineseTextToSpeech = function() {
       startCadence();
     },
 
-
     /**
      * stop() Attempts to stop playback cadence
      *
      * @param void
      * @return void
      */
-    stop: function () {      
+    stop: function () {
       clearCadence();
     },
-
 
     /**
      * setPace() Sets pace of playback cadence
@@ -255,11 +235,9 @@ var ChineseTextToSpeech = function() {
      * @return ChineseTextToSpeech object
      */
     setPace: function (paceValue) {
-    
       _pace = paceValue;
       return this;
     },
-
 
     /**
      * playPinyin() Plays a single pinyin tone bank
@@ -269,14 +247,14 @@ var ChineseTextToSpeech = function() {
      * @param string pinyinId
      * @return ChineseTextToSpeech object
      */
-    playPinyin: function (pinyinId) { 
-
+    playPinyin: function (pinyinId) {
       var d = getObject(pinyinId + 'tone');
       d.play();
     }
-    
-
 
   };
 };
 
+
+
+// one newline? two newlines? ... or was it three?
