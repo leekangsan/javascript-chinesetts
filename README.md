@@ -3,8 +3,13 @@ javascript-chinesetts
 
 Mandarin Chinese Text-to-Speech processing using native speaker voices
 
-+ JavaScript written using Airbnb JavaScript Style Guide 
-  + Learn More: https://github.com/airbnb/javascript
++ JavaScript written with a few JavaScript Style Guides:
+  + http://javascript.crockford.com/code.html
+  + http://contribute.jquery.org/style-guide/js/
+  + http://guides.sproutcore.com/style_guide.html
+  + https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Coding_Style#JavaScript_practices
+  + https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
+  + https://github.com/airbnb/javascript
 
 ## GETTING STARTED ##
 
@@ -12,6 +17,10 @@ Mandarin Chinese Text-to-Speech processing using native speaker voices
 + For example:
   + http://localhost/demo.html
   + http://localhost:80/demo.html
+
++ Using PHP build in server from repo root:
+  + PHP Command Line: `php -S localhost:8888`
+  + Browser: `http://localhost:8888/demo.html`
 
 ## COMPATIBILITY ##
 
@@ -27,9 +36,8 @@ Mandarin Chinese Text-to-Speech processing using native speaker voices
 
 ## SYNOPSIS ##
 
+```
 + ChineseTextToSpeech()
-
-*****
 
 + getHtml() : string
 + getInput() : string
@@ -39,3 +47,4 @@ Mandarin Chinese Text-to-Speech processing using native speaker voices
 + setPace(integer) : ChineseTextToSpeech
 + playPinyin(string) : void
 
+```
