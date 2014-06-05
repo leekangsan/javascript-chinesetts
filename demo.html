@@ -3,9 +3,9 @@
 <head>
   <title>chinesetts.js demo</title>
 <!-- IMPORTANT: need meta charset utf-8 for character readability -->
-<meta charset="utf-8"> 
-  
-  <script type="text/javascript" src="pinyin/hanyupinyin.js"></script>
+<meta charset="utf-8">
+
+  <script type="text/javascript" src="hanyupinyin.js"></script>
   <script type="text/javascript" src="chinesetts.js"></script>
   <script>
 
@@ -16,27 +16,25 @@
           pinyin = '';
 
       // build HanyuPinyin and ChineseTextToSpeech objects
+      // only two objects in the global space
       hp = new HanyuPinyin();
       tts = new ChineseTextToSpeech();
 
-      // sets the pinyin path to access 'pinyin' submodule
-      hp.setPath("pinyin");
-
-      // sample chinese text ... 
+      // sample chinese text ...
       // 1, 2, 3, 4, 5 ...
       hp.setInput("一二三四五");
       pinyin = hp.toString();
-      
+
       // shows pin1 yin1 with tone numbers
       // yi1 er4 san1 si4 wu3
-      console.log(pinyin); 
+      console.log(pinyin);
 
       // pace the speech to 2 seconds
       tts.setPace(2000);
 
       // sets pin1 yin1 input
       tts.setInput(pinyin);
-      
+
       // some comments
       document.body.innerHTML += 'chinesetts.js - ' +
         'You should hear Mandarin Chinese, counting 1, 2, 3, 4, 5... <br/>' +
@@ -44,8 +42,8 @@
         '<a href=javascript:void(window.open("view-source:"+location.href));> ' +
         'View Source</a> for code.';
 
-      // writes HTML5 audio tone bank 
-      document.body.innerHTML += tts.getHtml();      
+      // writes HTML5 audio tone bank
+      document.body.innerHTML += tts.getHtml();
 
       // play the pin1 yin1 input in sequence
       tts.speak();
