@@ -1,16 +1,38 @@
 /**
- * chinesetts.js, JavaScript Chinese Text-to-Speech object
- *      - processes pinyin input
- *      - speaks tonemes (hanyu pinyin speech units)
+ * This is free and unencumbered software released into the public domain.
  *
- * @version 0.5
- * @license The Unlicense, http://unlicense.org/
- * @author  The Pffy Authors, https://github.com/pffy/
- * @updated 2014-06-05
- * @link    https://github.com/pffy/javascript-chinesetts
+ * Anyone is free to copy, modify, publish, use, compile, sell, or
+ * distribute this software, either in source code form or as a compiled
+ * binary, for any purpose, commercial or non-commercial, and by any
+ * means.
  *
+ * In jurisdictions that recognize copyright laws, the author or authors
+ * of this software dedicate any and all copyright interest in the
+ * software to the public domain. We make this dedication for the benefit
+ * of the public at large and to the detriment of our heirs and
+ * successors. We intend this dedication to be an overt act of
+ * relinquishment in perpetuity of all present and future rights to this
+ * software under copyright law.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ * IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ *
+ * For more information, please refer to <http://unlicense.org/>
  */
 
+/**
+ * name     : chinesetts.js
+ * version  : 8
+ * updated  : 2015-07-16
+ * license  : http://unlicense.org/ The Unlicense
+ * git      : https://github.com/pffy/javascript-chinesetts
+ *
+ */
 var ChineseTextToSpeech = function() {
 
   // timeout offest in milliseconds (1500 = 1.5 seconds)
@@ -75,6 +97,7 @@ var ChineseTextToSpeech = function() {
             + _pinyinDeck[x]  + '");', lap);
       }
 
+    console.info('_timeDeck is an array of setTimeout references');
     console.log(_timeDeck);
   }
 
@@ -114,9 +137,12 @@ var ChineseTextToSpeech = function() {
   function buildAudioHtml(pinyinId) {
 
     // HTML5 audio tone banks
-    _outputHtml += '<audio class="tts" id="' + pinyinId + 'tone" controls="controls">';
-    _outputHtml += '<source src="mp3snd/mp3/' + pinyinId + '.mp3" type="audio/mpeg" />';
-    _outputHtml += '<source src="oggsnd/ogg/' + pinyinId + '.ogg" type="audio/ogg" />';
+    _outputHtml += '<audio class="tts" id="' + pinyinId
+      + 'tone" controls="controls">';
+    _outputHtml += '<source src="mp3snd/mp3/' + pinyinId
+      + '.mp3" type="audio/mpeg" />';
+    _outputHtml += '<source src="oggsnd/ogg/' + pinyinId
+      + '.ogg" type="audio/ogg" />';
     _outputHtml += '</audio>';
 
     // event listeners will re-load audio after they have 'ended'
@@ -156,6 +182,7 @@ var ChineseTextToSpeech = function() {
       _toneBank.push(_pinyinDeck[i]);
     }
 
+    console.info('_toneBank is an array of unique pinyin sounds');
     console.log(_toneBank);
   }
 
