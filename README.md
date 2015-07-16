@@ -5,7 +5,7 @@ Mandarin Chinese Text-to-Speech processing using native speaker voices
 
 ## COMPATIBILITY ##
 
-+ If your browser has [WebKit](https://www.webkit.org/), you should be peachy keen.
++ In general: if your browser has [WebKit](https://www.webkit.org/), you should be peachy keen.
 
 |  **Browser** | **Works** |
 |  ------- | ------- |
