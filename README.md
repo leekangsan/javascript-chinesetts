@@ -14,7 +14,7 @@ Mandarin Chinese Text-to-Speech processing using native speaker voices
 |  [Safari](https://www.apple.com/safari/) | **Yes.** |
 |  [Firefox 28+](https://www.mozilla.org/en-US/firefox/new/) | **Nope.** |
 |  [Firefox < 28](http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/27.0.1/) | **Yes.** |
-|  MSIE 11 | **OK.** |
+|  Microsoft Internet Explorer 11 | **OK.** |
 |  Microsoft Edge] | **Dunno.** |
 
 ## GETTING STARTED ##
