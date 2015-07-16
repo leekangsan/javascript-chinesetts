@@ -9,7 +9,7 @@ Mandarin Chinese Text-to-Speech processing using native speaker voices
 
 |  **Browser** | **Works** |
 |  ------- | ------- |
-|  [Google Chrome](https://www.google.com/chrome/) _(recommended)_ | **Yes.** |
+|  [Google Chrome](https://www.google.com/chrome/) ***(recommended)*** | **Yes.** |
 |  [Opera](www.opera.com/) | **Yes.** |
 |  [Safari](https://www.apple.com/safari/) | **Yes.** |
 |  [Firefox 28+](https://www.mozilla.org/en-US/firefox/new/) | **Nope.** |
