@@ -7,6 +7,3 @@
 [submodule "oggsnd"]
 	path = oggsnd
 	url = git://github.com/pffy/ogg-chinese-pinyin-sound.git
-[submodule "idx"]
-	path = idx
-	url = git://github.com/pffy/idx.git
